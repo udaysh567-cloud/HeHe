@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorry Gauri</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ffd6e8, #cdb4ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card, .celebration {
+            background: #ffffff;
+            max-width: 460px;
+            padding: 35px 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+            text-align: center;
+            position: absolute;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.9);
+        }
+
+        h1 {
+            color: #7b2cbf;
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .emoji {
+            font-size: 55px;
+            margin-bottom: 10px;
+            animation: bounce 1.5s infinite;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #444;
+            margin: 12px 0;
+        }
+
+        .buttons {
+            margin-top: 22px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            padding: 12px 26px;
+            border: none;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .yes {
+            background: #7b2cbf;
+            color: white;
+        }
+
+        .yes:hover {
+            background: #5a189a;
+            transform: scale(1.05);
+        }
+
+        .no {
+            background: #ddd;
+            color: #333;
+            position: relative;
+        }
+
+        .celebration h1 {
+            font-size: 32px;
+        }
+
+        .celebration .emoji {
+            font-size: 60px;
+            animation: none;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- APOLOGY CARD -->
+<div class="card" id="apology">
+    <div class="emoji">🥺</div>
+
+    <h1>Sorry, Gauri</h1>
+
+    <p>
+        Okay… I know I annoyed you.
+        And yes, I probably deserved that look you gave me.
+    </p>
+
+    <p>
+        I may mess up sometimes,
+        but please know this —
+        your brother/sister loves you a LOT.
+    </p>
+
+    <p>
+        Life is way better when you’re not mad at me.
+        Also, the house feels scarier when you’re silent.
+    </p>
+
+    <p>
+        I officially owe you
+        <strong>Spring Rolls, Dosa, snacks, gifts,
+        and unlimited sibling favors</strong>.
+        No negotiations.
+    </p>
+
+    <div class="buttons">
+        <button class="yes" onclick="forgive()">Yes, I forgive you</button>
+        <button class="no" onmouseover="runAway(this)">No</button>
+    </div>
+</div>
+
+<!-- CELEBRATION SCREEN -->
+<div class="celebration hidden" id="celebration">
+    <div class="emoji">🎉💜</div>
+
+    <h1>Best Sister Ever!</h1>
+
+    <p>
+        Forgiveness received successfully.
+        Mood upgraded instantly.
+    </p>
+
+    <p>
+        Sibling bond: <strong>unbreakable</strong><br>
+        Arguments: <strong>temporary</strong><br>
+        Love for Gauri: <strong>permanent</strong>
+    </p>
+
+    <p>
+        Thank you for being my sister.
+        I’m lucky to have you. 💛
+    </p>
+</div>
+
+<script>
+    function forgive() {
+        document.getElementById("apology").classList.add("hidden");
+        document.getElementById("celebration").classList.remove("hidden");
+    }
+
+    function runAway(btn) {
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+</script>
+
+</body>
+</html>
